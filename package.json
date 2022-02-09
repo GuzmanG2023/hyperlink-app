@@ -1,0 +1,25 @@
+{
+  "name": "hyperlink-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuzmanG2023/hyperlink-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuzmanG2023/hyperlink-app/issues"
+  },
+  "homepage": "https://github.com/GuzmanG2023/hyperlink-app#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "jest": "^27.5.1",
+    "mysql2": "^2.3.3"
+  }
+}
