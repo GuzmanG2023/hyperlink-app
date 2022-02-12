@@ -15,4 +15,13 @@ Genre.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-    });
+    },
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'genre'
+    }
+);
+
+module.exports = Genre;

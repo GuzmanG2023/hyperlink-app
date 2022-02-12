@@ -1,6 +1,10 @@
 const Game = require('./Game');
 const System = require('./System');
 const User = require('./User');
+const Post = require('./Post');
+const Genre = require('./Genre');
+const Comment = require('./Comment');
+
 
 // one to many association: user -> post
 User.hasMany(Post, {
@@ -59,4 +63,4 @@ Genre.hasMany(Post, {
 Post.belongsTo(Genre);
 
 
-module.exports = { Game, System, User }
+module.exports = { Game, System, User, Post, Genre, Comment }
