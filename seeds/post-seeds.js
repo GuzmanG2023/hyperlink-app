@@ -8,7 +8,8 @@ const postdata = [
         post_date: '2022-01-01',
         game_id: 1,
         system_id: 1,
-        genre_id: 1
+        genre_id: 1,
+        user_id: 1
     },
 
     {
@@ -17,7 +18,8 @@ const postdata = [
         post_date: '2022-01-01',
         game_id: 2,
         system_id: 2,
-        genre_id: 2
+        genre_id: 2,
+        user_id: 2
     },
 ]
 

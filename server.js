@@ -10,4 +10,3 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('./controllers/'));
 
 app.listen(PORT, () => console.log(`Now listening on posrt ${PORT}`));
-

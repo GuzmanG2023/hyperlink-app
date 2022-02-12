@@ -22,4 +22,17 @@ router.get('/', (req, res) => {
     });
 })
 
+// add new post
+// TODO: add authentication to post. Only logged in users should be able to add data
+// router.post('/', (req, res) => {
+//     Post.create({
+//         title: req.body.title,
+//         post_data: req.body.post_data,
+//         post_date: req.body.post_date,
+//         game_id: req.body.game_id,
+//         system_id: req.body.system_id,
+        
+//     })
+// })
+
 module.exports = router;
