@@ -33,12 +33,13 @@ Comment.init(
         }
     },
     post_date: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DATE,
         allowNull: false,
     }
 },
 {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment'
