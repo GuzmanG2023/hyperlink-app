@@ -51,10 +51,11 @@ Post.init(
       },
       post_data: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          isURL: true
-        }
+        allowNull: false
+      },
+      post_date: {
+        type: DataTypes.DATE,
+        allowNull: false
       },
       game_id: {
         type: DataTypes.INTEGER,
@@ -64,16 +65,25 @@ Post.init(
         }
       },
       system_id: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'system',
+          key: 'id'
+        }
       },
       genre_id: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'genre',
+          key: 'id'
+        }
       },
     },
     {
       sequelize,
+      timestamps: false,
       freezeTableName: true,
       underscored: true,
       modelName: 'post'

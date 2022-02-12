@@ -6,7 +6,7 @@ const commentdata = [
         comment_text: 'I love that game',
         user_id: 1,
         post_id: 1,
-        post_date: '20212-01-01'
+        post_date: '2022-01-01'
     },
     
     {
@@ -22,3 +22,4 @@ const seedComment = () => Comment.bulkCreate(commentdata);
 
 // export
 module.exports = seedComment;
+

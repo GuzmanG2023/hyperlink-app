@@ -19,7 +19,11 @@ User.init(
 
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true, 
+            validate: {
+                isEmail: true
+            }
         },
 
         password: {
@@ -32,6 +36,7 @@ User.init(
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'user'
