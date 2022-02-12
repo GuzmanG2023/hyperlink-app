@@ -1,4 +1,4 @@
-
+const routes = require('./controllers/');
 const exphbs = require('express-handelbars');
 const hbs = exphbs.create({});
 
