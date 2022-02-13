@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// app.engine('handlebars', 'hbs.engine');
+// app.set('view engine', 'handlebars');
+
 // point towards controller and api endpoints
 // app.use(require('./controllers/'));
 
