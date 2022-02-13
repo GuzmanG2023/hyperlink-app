@@ -22,6 +22,35 @@ router.get('/', (req, res) => {
     });
 })
 
+// get post by id
+router.get('/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'title',
+            'post_data',
+            'post_date',
+            'game_id',
+            'system_id', 
+            'genre_id',
+            'user_id'
+        ]
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id'});
+            return;
+        }
+        res.json(dbPostData)
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+})
+
 // add new post
 // TODO: add authentication to post. Only logged in users should be able to add data
 // router.post('/', (req, res) => {
