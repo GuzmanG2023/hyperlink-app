@@ -78,7 +78,7 @@ router.get('/:id', (req, res) => {
 })
 
 // add new post
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         // todo: rename popst_data
