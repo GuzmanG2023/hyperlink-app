@@ -3,7 +3,7 @@ const { Game } = require('../models');
 
 const gamedata = [ 
     {
-        name: 'Nba 2k22',
+        name: 'NBA 2K22',
         system_id: 1,
         release_year: 2022,
         publisher: '2K',
