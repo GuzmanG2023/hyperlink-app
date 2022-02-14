@@ -1,68 +1,60 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Game } = require('../../models');
+const { Genre } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get users
 router.get('/', (req, res) => {
-    Game.findAll({
+    Genre.findAll({
         attributes: [
             'id', 
-            'name', 
-            'system_id', 
-            'release_year', 
-            'publisher', 
-            'genre_id'
+            'name'
         ]
     })
-    .then(dbGameData => res.json(dbGameData))
+    .then(dbGenreData => res.json(dbGenreData))
     .catch(err => {
         res.status(500).json(err);
     })
 })
 
-// get game by id
+// get genre by id
 router.get('/:id', (req, res) => {
-    Game.findOne({
+    Genre.findOne({
         attributes: [
             'id', 
-            'name', 
-            'system_id', 
-            'release_year', 
-            'publisher', 
-            'genre_id'
+            'name'
         ]
     })
-    .then(dbGameData => {
-        if (!dbGameData) {
-            res.status(400).json({ message: 'No game found with this id' });
+    .then(dbGenreData => {
+        if (!dbGenreData) {
+            res.status(400).json({ message: 'No genre found with this id' });
             return;
         }
-        res.json(dbGameData);
+        res.json(dbGenreData);
     })
     .catch(err => {
         res.status(500).json(err);
     })
 })
 
-// add new game
+// add new genre
 router.post('/', withAuth, (req, res) => {
-    Game.create({
+    Genre.create({
         name: req.body.name,
         system_id: req.body.system_id,
         release_year: req.body.release_year,
         publisher: req.body.publisher,
         genre_id: req.body.genre_id
     })
-    .then(dbGameData => res.json(dbGameData))
+    .then(dbGenreData => res.json(dbGenreData))
     .catch(err => {
         res.status(500).json(err);
     })
 })
 
-// update game
+// update genre
 router.put('/:id', (req, res) => {
-    Game.update(
+    Genre.update(
         {
             name: req.body.title,
         },
@@ -72,31 +64,31 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-    .then(dbGameData => {
-        if (!dbGameData) {
-            res.status(400).json({ message: 'Np game found with this id' });
+    .then(dbGenreData => {
+        if (!dbGenreData) {
+            res.status(400).json({ message: 'Np genre found with this id' });
             return;
         }
-        res.json(dbGameData);
+        res.json(dbGenreData);
     })
     .catch(err => {
         res.status(500).json(err);
     })
 })
 
-// delete game
+// delete genre
 router.delete('/:id', withAuth, (req, res) => {
-    Game.destroy({
+    Genre.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbGameData => {
-        if (!dbGameData) {
-            res.status(400).json({ message: 'No game found with this id' });
+    .then(dbGenreData => {
+        if (!dbGenreData) {
+            res.status(400).json({ message: 'No genre found with this id' });
             return; 
         }
-        res.json(dbGameData);
+        res.json(dbGenreData);
     })
     .catch(err => {
         res.status(500).json(err);
