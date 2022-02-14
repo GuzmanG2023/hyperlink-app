@@ -5,7 +5,6 @@
 
 // module.exports = router;
 
-
 const router = require('express').Router();
 
 // TODO: import remaining api subsets
