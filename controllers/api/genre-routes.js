@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Genre } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get users
+// get genre
 router.get('/', (req, res) => {
     Genre.findAll({
         attributes: [
