@@ -73,7 +73,7 @@
         </section>
         
     
-        <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding">
+        <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding uk-background-secondary uk-flex-auto">
             <!-- post feed -->
             {{{ body }}}
 
@@ -95,9 +95,12 @@
               </ol>
         </main>
 
-        <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding">
+        <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
             <div id="top-available-now" class="">
                 <ol>
+                    <h6>
+                        Top Games Being Played
+                    </h6>
                     <!-- list by game_id - get data by how many people are scheduled  -->
                     <li>
                         Destiny 2
@@ -120,6 +123,9 @@
             <div id="top-played">
                 <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
                 <ol>
+                    <h6>
+                        Top Games in Collections
+                    </h6>
                     <li>
                         Halo Infinite
                     </li>
