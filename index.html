@@ -10,27 +10,23 @@
 
 <body>
 
-    <div class="">
-        <header>
-            <h1>
-                <a href="/">H Y P E R L I N K</a>"
+    <div class="uk-container-expand">
+        <header class ="uk-background-secondary">
+            <h1 class="uk-padding-small uk-flex uk-align-center">
+                <a href="/">H Y P E R L I N K</a>
             </h1>
-            <nav>
+            <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
                 <!-- Logout and Create Post buttons IF user is logged in -->
-                {{#if loggedin}}
+                <!-- {{#if loggedin}}
                 <a href="">Lobby</a>
-                <button id="logout" class="">Logout</button>
+                <button id="logout" class="">Logout</button> -->
 
-                <a href="">Make a Post</a>
-                <button id="create-post" class="">+Post</button>
+                <!-- <a href="">Make a Post</a>
+                <button id="create-post" class="">+Post</button> -->
 
-                {{else}}
+                <!-- {{else}} -->
                 <!-- Login/Signup Button IF user is NOT logged in -->
-                <a href="">Login/Signup</a>
-                {{/if}}
-
-                <!-- Search Bar -->
-                <form class="is-flex is-justify-content-center m-6 p-1">
+                <form class="uk-flex uk-flex-center uk-align-center">
                     <div>
                         <label for=></label>
                         <input type="submit text" id="searchBar" class="" placeholder="Search"/>
@@ -39,6 +35,11 @@
                     <button type="submit" id="submit" class="">Search</button>
                     <button type="submit" id="submit" class="">Clear</button>
                 </form>
+
+                <a href="">Login/Signup</a>
+                <!-- {{/if}} -->
+
+                <!-- Search Bar -->
             </nav>
         </header>
 
@@ -79,8 +80,8 @@
 
         </main>
 
-        <section id="top-feed">
-            <div id="top-available-now">
+        <section id="top-feed" class="uk-column-1-1">
+            <div id="top-available-now" class="uk-flex uk-flex-right uk-position-top uk-column-1-2 uk-margin-small-right uk-margin-large-top uk-padding-small">
                 <ol>
                     <!-- list by game_id - get data by how many people are scheduled  -->
                     <li>
@@ -101,7 +102,7 @@
                 </ol>
                 <!-- Top 5 games where other players are currently available -->
             </div>
-            <div id="top-played">
+            <div id="top-played" class="uk-flex uk-flex-right uk-colum-1-2 uk-margin-small-right uk-padding-small">
                 <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
                 <ol>
                     <li>
@@ -114,7 +115,7 @@
                         Destiny 2
                     </li>
                     <li>
-                        Call of Duty: Warzone
+                        Fortnite
                     </li>
                     <li>
                         Final Fantasy XIV
