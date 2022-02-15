@@ -11,10 +11,10 @@
 <body>
 
     <div class="uk-container-expand">
-        <header class ="uk-background-secondary">
-            <h1 class="uk-padding-small uk-flex uk-align-center">
+        <header class ="uk-background-secondary uk-sticky">
+            <h2 class="uk-padding-small uk-flex uk-align-center">
                 <a href="/">H Y P E R L I N K</a>
-            </h1>
+            </h2>
             <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
                 <!-- Logout and Create Post buttons IF user is logged in -->
                 <!-- {{#if loggedin}}
@@ -42,11 +42,26 @@
                 <!-- Search Bar -->
             </nav>
         </header>
-
-        <section>
+    
+    <div class="uk-flex">
+        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding">
             <div id="user-profile">
                 <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
                 <!-- User Info - Username, Games, Platforms, Schedule -->
+                <ol>
+                    <li>
+                    {{username}}
+                    </li>  
+                    <li>
+                        {{friends-list}}
+                    </li>
+                    <li>
+                        {{game_id}}
+                    </li>
+                    <li>
+                        {{schedule}}
+                    </li>
+                </ol>
                 
             </div>
             <div id ="friends-list">
@@ -56,8 +71,9 @@
                 <!-- Schedule -->
             </div>
         </section>
-
-        <main>
+        
+    
+        <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding">
             <!-- post feed -->
             {{{ body }}}
 
@@ -77,11 +93,10 @@
                   </article>
                 </li>
               </ol>
-
         </main>
 
-        <section id="top-feed" class="uk-column-1-1">
-            <div id="top-available-now" class="uk-flex uk-flex-right uk-position-top uk-column-1-2 uk-margin-small-right uk-margin-large-top uk-padding-small">
+        <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding">
+            <div id="top-available-now" class="">
                 <ol>
                     <!-- list by game_id - get data by how many people are scheduled  -->
                     <li>
@@ -102,7 +117,7 @@
                 </ol>
                 <!-- Top 5 games where other players are currently available -->
             </div>
-            <div id="top-played" class="uk-flex uk-flex-right uk-colum-1-2 uk-margin-small-right uk-padding-small">
+            <div id="top-played">
                 <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
                 <ol>
                     <li>
@@ -124,7 +139,9 @@
                 <!-- Top 5 common games most listed in user's profiles -->
             </div>
         </section>
-        <footer>
+        </div>
+
+        <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
             Thanks for playing!
         </footer>
     </div>
