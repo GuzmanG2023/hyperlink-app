@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Genre.create({
         name: req.body.name,
-        system_id: req.body.system_id,
+        platform_id: req.body.platform_id,
         release_year: req.body.release_year,
         publisher: req.body.publisher,
         genre_id: req.body.genre_id

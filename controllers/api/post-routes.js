@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
             'post_data',
             'post_date',
             'game_id',
-            'system_id', 
+            'platform_id', 
             'genre_id',
             'user_id'
         ],
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
             'post_data',
             'post_date',
             'game_id',
-            'system_id', 
+            'platform_id', 
             'genre_id',
             'user_id'
         ],
@@ -81,11 +81,10 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
-        // todo: rename popst_data
         post_data: req.body.post_data,
         post_date: new Date(),
         game_id: req.body.game_id,
-        system_id: req.body.system_id,
+        platform_id: req.body.platform_id,
         genre_id: req.body.genre_id,
         user_id: req.session.user_id
     })
@@ -96,7 +95,7 @@ router.post('/', withAuth, (req, res) => {
 })
 
 // update post 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             title: req.body.title

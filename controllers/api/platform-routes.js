@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Platform } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get users
+// get 
 router.get('/', (req, res) => {
     Platform.findAll({
         attributes: [
