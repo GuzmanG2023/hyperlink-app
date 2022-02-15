@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class System extends Model {}
+class Platform extends Model {}
 
-System.init(
+Platform.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -22,8 +22,8 @@ System.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'system'
+        modelName: 'platform'
     }
 )
 
-module.exports = System;
+module.exports = Platform;

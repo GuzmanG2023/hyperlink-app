@@ -17,11 +17,11 @@ Game.init(
             allowNull: false
         },
 
-        system_id: {
+        platform_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'system',
+                model: 'platform',
                 key: 'id'
             }
         },

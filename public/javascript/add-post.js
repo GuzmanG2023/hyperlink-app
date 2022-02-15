@@ -11,14 +11,14 @@ async function newFormHandler(event) {
             post_data
         }),
         headers: {
-            'Content-Type': 'appliocation/json'
+            'Content-Type': 'application/json'
         }
     });
 
     if (response.ok) {
         document.location.replace('');
     } else {
-        alert(response.statusTest);
+        alert(response.statusText);
     }
 }
 
