@@ -5,13 +5,13 @@ const frienddata = [
     {
         user_id1: 1,
         user_id2: 2,
-        status: 1
+        request: 1
     },
 
     {
         user_id1: 2,
         user_id2: 1,
-        status: 1
+        request: 1
     }
 ]
 
