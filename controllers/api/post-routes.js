@@ -81,7 +81,6 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
-        // todo: rename popst_data
         post_data: req.body.post_data,
         post_date: new Date(),
         game_id: req.body.game_id,
@@ -96,7 +95,7 @@ router.post('/', withAuth, (req, res) => {
 })
 
 // update post 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             title: req.body.title

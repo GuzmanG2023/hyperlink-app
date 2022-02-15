@@ -54,7 +54,6 @@ router.post('/', (req, res) => {
     })
 })
 
-
 // user login
 router.post('/login', (req, res) => {
     User.findOne({
