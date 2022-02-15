@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 const { Friend } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get friends
+// get all friend requests
 router.get('/', (req, res) => {
     Friend.findAll({
         attributes: [
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// get friend by specific user
+// get friends list by specific user
 router.get('/:id', (req, res) => {
     Friend.findAll({
         where: {
@@ -43,7 +43,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     })
 })
-
 
 // create new friend request
 router.post('/', (req, res) => {
