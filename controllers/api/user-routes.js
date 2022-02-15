@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -54,7 +55,6 @@ router.post('/', (req, res) => {
     })
 })
 
-
 // user login
 router.post('/login', (req, res) => {
     User.findOne({
@@ -63,7 +63,6 @@ router.post('/login', (req, res) => {
         }
     })
     .then(dbUserData => {
-        console.log(dbUserData)
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that email address! '});
             return;
@@ -101,23 +100,22 @@ router.post('/logout', (req, res) => {
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
-      individualHooks: true,
-      where: {
+        individualHooks: true,
+        where: {
         id: req.params.id
-      }
+        }
     })
-      .then(dbUserData => {
+        .then(dbUserData => {
         if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
         }
         res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
+        })
+        .catch(err => {
         res.status(500).json(err);
-      });
-  });
+        });
+    });
 
 // delete user
 router.delete('/:id', (req, res) => {

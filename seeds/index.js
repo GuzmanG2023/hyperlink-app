@@ -4,6 +4,7 @@ const seedComment = require('./comment-seeds');
 const seedGame = require('./game-seeds');
 const seedPlatform = require('./platform-seeds');
 const seedGenre = require('./genre-seeds');
+const seedFriend = require('./friend-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -20,7 +21,6 @@ const seedAll = async () => {
     // game
     await seedGame();
 
-
     console.log('--------------------');
     await seedUsers();
     console.log('--------------------');
@@ -30,6 +30,9 @@ const seedAll = async () => {
 
     // comment
     await seedComment();
+
+    // friend
+    await seedFriend();
 
     process.exit(0);
 }
