@@ -35,7 +35,7 @@ Post.belongsTo(Game);
 
 // one to many association: Platform -> game
 Platform.hasMany(Game, {
-    foreignkey: 'Platform_id'
+    foreignkey: 'platform_id'
 });
 
 Game.belongsTo(Platform);
@@ -49,7 +49,7 @@ Game.belongsTo(Genre);
 
 // one to many association: Platform -> post
 Platform.hasMany(Post, {
-    foreignKey: 'Platform_id'
+    foreignKey: 'platform_id'
 });
 
 Post.belongsTo(Platform);

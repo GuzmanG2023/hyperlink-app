@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Game, Genre, System, Comment } = require('../models');
+const { Post, User, Game, Genre, Platform, Comment } = require('../models');
 
 
 // get all posts on homepage
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
             'post_text',
             'post_date',
             'game_id',
-            'system_id',
+            'platform_id',
             'genre_id'
         ],
         include: [
@@ -56,7 +56,7 @@ router.get('/post/:id', (req, res) => {
             'title',
             'post-date',
             'game_id',
-            'system_id',
+            'platform_id',
             'genre_id'
         ],
         include: [
