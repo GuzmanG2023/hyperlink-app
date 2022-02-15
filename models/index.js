@@ -1,6 +1,10 @@
 const Game = require('./Game');
-const System = require('./System');
+const Platform = require('./Platform');
 const User = require('./User');
+const Post = require('./Post');
+const Genre = require('./Genre');
+const Comment = require('./Comment');
+const Friend = require('./Friend');
 
 // one to many association: user -> post
 User.hasMany(Post, {
@@ -30,12 +34,12 @@ Game.hasMany(Post, {
 
 Post.belongsTo(Game);
 
-// one to many association: system -> game
-System.hasMany(Game, {
-    foreignkey: 'system_id'
+// one to many association: Platform -> game
+Platform.hasMany(Game, {
+    foreignkey: 'platform_id'
 });
 
-Game.belongsTo(System);
+Game.belongsTo(Platform);
 
 // one to many association: genre -> game
 Genre.hasMany(Game, {
@@ -44,12 +48,12 @@ Genre.hasMany(Game, {
 
 Game.belongsTo(Genre);
 
-// one to many association: system -> post
-System.hasMany(Post, {
-    foreignKey: 'system_id'
+// one to many association: Platform -> post
+Platform.hasMany(Post, {
+    foreignKey: 'platform_id'
 });
 
-Post.belongsTo(System);
+Post.belongsTo(Platform);
 
 // one to many association: genre -> post
 Genre.hasMany(Post, {
@@ -58,5 +62,16 @@ Genre.hasMany(Post, {
 
 Post.belongsTo(Genre);
 
+// one to many association: friend
+User.hasMany(Friend, {
+    foreignKey: 'user_id1',
+    onDelete: 'cascade'
+})
+Friend.belongsTo(User);
 
-module.exports = { Game, System, User }
+User.hasMany(Friend, {
+    foreignKey: 'user_id2'
+})
+Friend.belongsTo(User);
+
+module.exports = { Game, Platform, User, Post, Genre, Comment, Friend }

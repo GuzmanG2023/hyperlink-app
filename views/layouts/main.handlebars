@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYPERLINK</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css">
+</head>
+
+<body>
+
+    <div class="uk-container-expand">
+        <header class ="uk-background-secondary uk-sticky">
+            <h2 class="uk-padding-small uk-flex uk-align-center">
+                <a href="/">H Y P E R L I N K</a>
+            </h2>
+            <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
+                <!-- Logout and Create Post buttons IF user is logged in -->
+                {{#if loggedIn}}
+                <a href="">Lobby</a>
+                <button id="logout" class="">Logout</button> -->
+
+                <a href="">Make a Post</a>
+                <button id="create-post" class="">+Post</button> -->
+
+                {{else}}
+                <!-- Login/Signup Button IF user is NOT logged in -->
+                <form class="uk-flex uk-flex-center uk-align-center">
+                    <div>
+                        <label for=></label>
+                        <input type="submit text" id="searchBar" class="" placeholder="Search"/>
+                    </div>
+        
+                    <button type="submit" id="submit" class="">Search</button>
+                    <button type="submit" id="submit" class="">Clear</button>
+                </form>
+                {{!-- point user to login screen when clicked --}}
+                <a href="/login">Login/Signup</a>
+                {{/if}} 
+
+                <!-- Search Bar -->
+            </nav>
+        </header>
+    
+    <div class="uk-flex">
+        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding">
+            <div id="user-profile">
+                <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
+                <!-- User Info - Username, Games, Platforms, Schedule -->
+                <ol>
+                    <li>
+                    {{username}}
+                    </li>  
+                    <li>
+                        {{friends-list}}
+                    </li>
+                    <li>
+                        {{game_id}}
+                    </li>
+                    <li>
+                        {{schedule}}
+                    </li>
+                </ol>
+            </div>
+            <div id ="friends-list">
+                <!-- Friends List -->
+            </div>
+            <div id="game-calendar">
+                <!-- Schedule -->
+            </div>
+        </section>
+        
+    
+        <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding uk-background-secondary uk-flex-auto">
+            <!-- post feed -->
+            {{{ body }}}
+            
+        </main>
+
+        <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
+            <div id="top-available-now" class="">
+                <ol>
+                    <h6>
+                        Top Games Being Played
+                    </h6>
+                    <!-- list by game_id - get data by how many people are scheduled  -->
+                    <li>
+                        Destiny 2
+                    </li>
+                    <li>
+                        Mortal Kombat 11
+                    </li>
+                    <li>
+                        NBA 2K22
+                    </li>
+                    <li>
+                        Sea of Thieves
+                    </li>
+                    <li>
+                        Final Fantasy XIV
+                    </li>
+                </ol>
+                <!-- Top 5 games where other players are currently available -->
+            </div>
+            <div id="top-played">
+                <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
+                <ol>
+                    <h6>
+                        Top Games in Collections
+                    </h6>
+                    <li>
+                        Halo Infinite
+                    </li>
+                    <li>
+                        Apex Legends
+                    </li>
+                    <li>
+                        Destiny 2
+                    </li>
+                    <li>
+                        Fortnite
+                    </li>
+                    <li>
+                        Final Fantasy XIV
+                    </li>
+                </ol>
+                <!-- Top 5 common games most listed in user's profiles -->
+            </div>
+        </section>
+        </div>
+
+        <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
+            Thanks for playing!
+        </footer>
+    </div>
+    {{!-- logout logic --}}
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+</html>
