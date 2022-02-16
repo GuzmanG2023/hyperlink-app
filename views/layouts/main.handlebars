@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="">
+    <div>
         <header class ="uk-background-secondary uk-position-relative uk-sticky">
             <h2 class="uk-padding-small uk-flex uk-align-center">
                 <a href="/">H Y P E R L I N K</a>
@@ -18,12 +18,12 @@
             <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
                 {{!-- <!-- Logout and Create Post buttons IF user is logged in --> --}}
                  {{#if loggedIn}}
-                <a href="">Lobby</a>
-                <button id="logout" class="uk-button uk-button-secondary">Logout</button>
-
-                <a href="">Make a Post</a>
-                <button id="create-post" class="uk-button uk-button-primary">+Post</button>
-
+                <a href="/" class="uk-margin-right">Lobby</a>
+                
+                <button id="create-post" onclick="window.location.href='/dashboard'" class="uk-button uk-button-primary uk-button-small">+Post</button>
+                
+                <button id="logout" class="uk-button uk-button-secondary uk-button-small">Logout</button>
+                
                 {{else}}
                 {{!-- Login/Signup Button IF user is NOT logged in --}}
                 <form class="uk-flex uk-flex-center uk-align-center">
@@ -48,7 +48,7 @@
             <div id="user-profile">
                 <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
                 <!-- User Info - Username, Games, Platforms, Schedule -->
-                <ol>
+                {{!-- <ol>
                     <li>
                     {{username}}
                     </li>  
@@ -62,17 +62,20 @@
                         {{schedule}}
                     </li>
                 </ol>
-            </div>
-            <div id ="friends-list">
-                <!-- Friends List -->
-            </div>
-            <div id="game-calendar">
-                <!-- Schedule -->
-            </div>
+            </div> --}}
+            {{#if loggedIn }}
+                <div id ="friends-list">
+                    {{!-- <button id="friends-list"> Friends List </button> --}}
+                    <!-- Friends List -->
+                </div>
+                <div id="game-calendar">
+                    <!-- Schedule -->
+                </div>
+            {{/if}}
         </section>
         
     
-        <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding uk-background-secondary uk-flex-auto">
+        <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
             <!-- post feed -->
             {{{ body }}}
             
@@ -80,7 +83,7 @@
 
         <section id="top-feed" class="uk-width-1-6 uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
             <div id="top-available-now" class="">
-                <ol class="uk-animation-slide-right-medium">
+                <ol class="uk-animation-slide-right-medium uk-text-emphasis">
                     <h6>
                         Top Games Being Played
                     </h6>
@@ -105,7 +108,7 @@
             </div>
             <div id="top-played">
                 <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
-                <ol class="uk-animation-slide-left-medium">
+                <ol class="uk-animation-slide-left-medium uk-text-emphasis">
                     <h6>
                         Top Games in Collections
                     </h6>
@@ -137,7 +140,7 @@
     {{!-- logout logic --}}
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
-    <script src="/javascript/add-post.js"></script>
+    <script src="/javascript/friends-list.js"></script>
     {{/if}}
 </body>
 </html>

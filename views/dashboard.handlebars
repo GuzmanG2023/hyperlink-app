@@ -1,17 +1,27 @@
 <section>
-    <h1> Welcome </h1>
-  <h2>Create New Post</h2>
+    <h1 class="uk-text-italic uk-text-warning"> Welcome </h1>
+  <h2 class="uk-text-bold uk-text-primary">Create New Post</h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <label for="post-title" class="uk-text-primary uk-text-italic">Title</label>
+      <input type="text" id="post-title" name="post-title" class="uk-input uk-form-small"/>
     </div>
     <div>
-      <label for="post-text">Post Text</label>
-      <input id="post-text" name="post-text" />
+      <label for="post-text" class="uk-text-primary uk-text-italic">Post Text</label>
+      <input id="post-text" name="post-text" class="uk-input uk-form-large"/>
     </div>
-    <button type="submit" class="btn">Create</button>
+    {{!-- game selector --}}
+    <div>
+        <select name="post-game" id="game-dropdown">
+            <option value="Destiny 2">Destiny 2</option>
+            <option value="Mortal Kombat 11">Mortal Kombat 11</option>
+            <option value="NBA 2K22">NBA 2K22</option>
+            <option value="Sea of Thieves">Sea of Thieves</option>
+            <option value="Final Fantasy XIV">Final Fantasy XIV</option>
+        </select>
+    </div>
+    <button type="submit" id="new-post" class="btn uk-button-primary uk-button-large uk-margin-top">Create</button>
   </form>
 </section>
 
