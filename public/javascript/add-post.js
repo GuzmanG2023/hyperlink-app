@@ -3,6 +3,7 @@ async function newFormHandler(event) {
 
     const title = document.querySelector('input[name="post-title"]').value;
     const post_data = document.querySelector('input[name="post-text"]').value;
+    const game = document.querySelector('input[name="post-game"]').value;
 
     const games = {
             "Destiny 2" : {
@@ -36,7 +37,10 @@ async function newFormHandler(event) {
         method: 'POST',
         body: JSON.stringify({
             title,
-            post_data
+            post_data,
+            game_id: games[game].game_id,
+            platform_id: games[game].platform_id,
+            genre_id: games[game].genre_id
         }),
         headers: {
             'Content-Type': 'application/json'

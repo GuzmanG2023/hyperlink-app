@@ -39,14 +39,10 @@ router.get('/', (req, res) => {
 })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-    //   console.log(`posting within the then`);
-    //   console.log(posts);
-    //   console.log('now posting object')
       console.log(dbPostData);
       res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
-    //   console.log(err);
       res.status(500).json(err);
     });
 });
