@@ -2,7 +2,7 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="post-title"]').value;
-    const post_data = document.querySelector('input[name="post-data"]').value;
+    const post_data = document.querySelector('input[name="post-text"]').value;
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -16,7 +16,7 @@ async function newFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('');
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
