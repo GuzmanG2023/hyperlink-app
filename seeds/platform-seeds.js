@@ -8,6 +8,9 @@ const platformdata = [
     },
     {
         name: 'xbox x'
+    },
+    {
+        name: 'pc'
     }
 ]
 
