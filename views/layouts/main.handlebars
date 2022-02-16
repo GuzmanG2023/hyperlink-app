@@ -10,30 +10,30 @@
 
 <body>
 
-    <div class="uk-container-expand">
-        <header class ="uk-background-secondary uk-sticky">
+    <div class="">
+        <header class ="uk-background-secondary uk-position-relative uk-sticky">
             <h2 class="uk-padding-small uk-flex uk-align-center">
                 <a href="/">H Y P E R L I N K</a>
             </h2>
             <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
-                <!-- Logout and Create Post buttons IF user is logged in -->
-                {{#if loggedIn}}
+                {{!-- <!-- Logout and Create Post buttons IF user is logged in --> --}}
+                 {{#if loggedin}}
                 <a href="">Lobby</a>
-                <button id="logout" class="">Logout</button> -->
+                <button id="logout" class="uk-button uk-button-secondary">Logout</button>
 
                 <a href="">Make a Post</a>
-                <button id="create-post" class="">+Post</button> -->
+                <button id="create-post" class="uk-button uk-button-primary">+Post</button>
 
                 {{else}}
-                <!-- Login/Signup Button IF user is NOT logged in -->
+                {{!-- Login/Signup Button IF user is NOT logged in --}}
                 <form class="uk-flex uk-flex-center uk-align-center">
                     <div>
                         <label for=></label>
-                        <input type="submit text" id="searchBar" class="" placeholder="Search"/>
+                        <input type="submit text" id="searchBar" class="uk-input uk-form-small" placeholder="Search"/>
                     </div>
         
-                    <button type="submit" id="submit" class="">Search</button>
-                    <button type="submit" id="submit" class="">Clear</button>
+                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-primary">Search</button>
+                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-secondary">Clear</button>
                 </form>
                 {{!-- point user to login screen when clicked --}}
                 <a href="/login">Login/Signup</a>
@@ -44,7 +44,7 @@
         </header>
     
     <div class="uk-flex">
-        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding">
+        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
             <div id="user-profile">
                 <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
                 <!-- User Info - Username, Games, Platforms, Schedule -->
@@ -78,9 +78,9 @@
             
         </main>
 
-        <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
+        <section id="top-feed" class="uk-width-1-6 uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
             <div id="top-available-now" class="">
-                <ol>
+                <ol class="uk-animation-slide-right-medium">
                     <h6>
                         Top Games Being Played
                     </h6>
@@ -105,7 +105,7 @@
             </div>
             <div id="top-played">
                 <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
-                <ol>
+                <ol class="uk-animation-slide-left-medium">
                     <h6>
                         Top Games in Collections
                     </h6>
