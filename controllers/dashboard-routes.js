@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment} = require('../models');
+const { Post, User, Comment, Friend} = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
@@ -31,13 +31,16 @@ router.get('/', (req, res) => {
         },
         {
             model: User,
-            attributes: ['username']
+            attributes: ['username'],
+            include: {
+              model: Friend,
+              attributes: ['user_id2']
+            }
         }
     ]
 })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      console.log(dbPostData);
       res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {

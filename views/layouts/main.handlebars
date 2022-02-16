@@ -48,7 +48,7 @@
             <div id="user-profile">
                 <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
                 <!-- User Info - Username, Games, Platforms, Schedule -->
-                <ol>
+                {{!-- <ol>
                     <li>
                     {{username}}
                     </li>  
@@ -62,13 +62,16 @@
                         {{schedule}}
                     </li>
                 </ol>
-            </div>
-            <div id ="friends-list">
-                <!-- Friends List -->
-            </div>
-            <div id="game-calendar">
-                <!-- Schedule -->
-            </div>
+            </div> --}}
+            {{#if loggedIn }}
+                <div id ="friends-list">
+                    {{!-- <button id="friends-list"> Friends List </button> --}}
+                    <!-- Friends List -->
+                </div>
+                <div id="game-calendar">
+                    <!-- Schedule -->
+                </div>
+            {{/if}}
         </section>
         
     
@@ -137,6 +140,7 @@
     {{!-- logout logic --}}
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
+    <script src="/javascript/friends-list.js"></script>
     {{/if}}
 </body>
 </html>
