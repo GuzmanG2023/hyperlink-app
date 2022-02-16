@@ -4,16 +4,6 @@ async function newFormHandler(event) {
     const title = document.querySelector('input[name="post-title"]').value;
     const post_data = document.querySelector('input[name="post-text"]').value;
 
-    // // game object
-    // const games = {
-    //     {
-    //         "Halo Infinite" : {
-    //             "game_id": 
-    //             "as"
-    //         }
-    //     }
-    // }
-    
     const games = {
             "Destiny 2" : {
                 "game_id": 1,
