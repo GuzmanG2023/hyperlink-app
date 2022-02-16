@@ -21,9 +21,8 @@ const seedAll = async () => {
     // game
     await seedGame();
 
-    console.log('--------------------');
+    // seed
     await seedUsers();
-    console.log('--------------------');
 
     // post
     await seedPost();
