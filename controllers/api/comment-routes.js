@@ -11,13 +11,39 @@ router.get('/', (req, res) => {
     });
 });
 
+// find one comment
+router.get('/:id', (req, res) => {
+    Comment.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'comment_text',
+            'user_id',
+            'post_date',
+            'post_id'
+        ]
+    })
+    .then(dbCommentData => {
+        if (!dbCommentData) {
+            res.status(404).json({ message: 'no comments was found'});
+            return;
+        }
+        res.json(dbCommentData);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+});
+
 // post comment
 router.post('/', withAuth, (req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
         user_id: req.session.user_id,
         post_id: req.body.post_id,
-        date_created: new Date()
+        post_date: new Date()
     })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
