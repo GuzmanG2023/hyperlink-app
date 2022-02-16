@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 })
 
 // add new game
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Game.create({
         name: req.body.name,
         platform_id: req.body.platform_id,
@@ -61,7 +61,7 @@ router.post('/', withAuth, (req, res) => {
 })
 
 // update game
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Game.update(
         {
             name: req.body.title,
