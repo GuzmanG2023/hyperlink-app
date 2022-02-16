@@ -1,18 +1,20 @@
 <div>Homepage Test</div>
 
-{{!-- <ol class="">
-  <li>
-    <article class="">
-      <div class="">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-        <span>({{post_url}})</span>
-      </div>
-      <div class="">
-        {{vote_count}} point(s) by {{user.username}} on
-        {{created_at}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-      </div>
-    </article>
-  </li>
-</ol>  --}}
+<ol class="">
+  {{#each posts}}
+    <li>
+      <article class="">
+        <div class="">
+          <a href="" target="_blank">{{title}}</a>
+          <span>({{post_data}})</span>
+        </div>
+        <div class="">
+        by {{user.username}}
+        {{post_date}}
+          |
+          <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+        </div>
+      </article>
+    </li>
+    {{/each}}
+  </ol>
