@@ -35,9 +35,9 @@
                     <button type="submit" id="submit" class="">Search</button>
                     <button type="submit" id="submit" class="">Clear</button>
                 </form>
-
-                <a href="">Login/Signup</a>
-                {{/if}}
+                {{!-- point user to login screen when clicked --}}
+                <a href="/login">Login/Signup</a>
+                {{/if}} 
 
                 <!-- Search Bar -->
             </nav>
@@ -50,7 +50,7 @@
                 <!-- User Info - Username, Games, Platforms, Schedule -->
                 <ol>
                     <li>
-                        {{username}}
+                    {{username}}
                     </li>  
                     <li>
                         {{friends-list}}
@@ -62,7 +62,6 @@
                         {{schedule}}
                     </li>
                 </ol>
-                
             </div>
             <div id ="friends-list">
                 <!-- Friends List -->
@@ -76,23 +75,7 @@
         <main  class="uk-flex uk-flex-center uk-align-center uk-margin uk-padding uk-background-secondary uk-flex-auto">
             <!-- post feed -->
             {{{ body }}}
-
-            <ol class="">
-                <li>
-                  <article class="">
-                    <div class="">
-                      <a href="" target="_blank">{{title}}</a>
-                      <span>({{post_data}})</span>
-                    </div>
-                    <div class="">
-                    by {{user.username}}
-                    {{post_date}}
-                      |
-                      <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-                    </div>
-                  </article>
-                </li>
-              </ol>
+            
         </main>
 
         <section id="top-feed" class="uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
@@ -151,6 +134,9 @@
             Thanks for playing!
         </footer>
     </div>
-    
+    {{!-- logout logic --}}
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>

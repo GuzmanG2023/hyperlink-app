@@ -12,12 +12,13 @@ router.get('/', (req, res) => {
             'post_date',
             'game_id',
             'platform_id',
-            'genre_id'
+            'genre_id',
+            [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'post_date' ],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'post_date'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -31,14 +32,12 @@ router.get('/', (req, res) => {
     })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        console.log(posts);
         res.render('homepage', {
             posts,
             loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
-        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -87,7 +86,6 @@ router.get('/post/:id', (req, res) => {
         });
     })
     .catch(err => {
-        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -100,5 +98,6 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
+
 
 module.exports = router;

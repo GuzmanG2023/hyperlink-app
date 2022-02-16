@@ -4,6 +4,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Genre = require('./Genre');
 const Comment = require('./Comment');
+const Friend = require('./Friend');
 
 // one to many association: user -> post
 User.hasMany(Post, {
@@ -61,5 +62,16 @@ Genre.hasMany(Post, {
 
 Post.belongsTo(Genre);
 
+// one to many association: friend
+User.hasMany(Friend, {
+    foreignKey: 'user_id1',
+    onDelete: 'cascade'
+})
+Friend.belongsTo(User);
 
-module.exports = { Game, Platform, User, Post, Genre, Comment }
+User.hasMany(Friend, {
+    foreignKey: 'user_id2'
+})
+Friend.belongsTo(User);
+
+module.exports = { Game, Platform, User, Post, Genre, Comment, Friend }
