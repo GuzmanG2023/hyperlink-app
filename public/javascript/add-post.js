@@ -3,8 +3,8 @@ var newPostBtn = document.getElementById("new-post");
 var gameDictionary = {
     "Destiny 2" : {
         "game_id": 1,
-        "platform_id" : 1,
-        "genre_id" : 1
+        "platform_id" : 2,
+        "genre_id" : 3
     },
     "Mortal Kombat 11": {
         "game_id": 2,
@@ -12,19 +12,19 @@ var gameDictionary = {
         "genre_id": 2
     },
     "NBA 2K22": {
-        "game_id": 1,
+        "game_id": 3,
         "platform_id":  1,
         "genre_id": 1
     },
     "Sea of Thieves": {
         "game_id": 4,
-        "platform_id":  4,
+        "platform_id":  2,
         "genre_id": 4
     },
     "Final Fantasy XIV": {
         "game_id": 5,
-        "platform_id":  5,
-        "genre_id": 5
+        "platform_id":  3,
+        "genre_id": 3
     }
 }
 

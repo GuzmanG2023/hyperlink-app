@@ -7,6 +7,12 @@ const genredata = [
     },
     {
         name: 'Fighting'
+    },
+    {
+        name: 'Shooting'
+    },
+    {
+        name: 'Adventure'
     }
 ]
 
