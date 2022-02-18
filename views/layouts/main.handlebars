@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div>
         <header class ="uk-background-secondary uk-position-relative uk-sticky">
             <h2 class="uk-padding-small uk-flex uk-align-center">
@@ -24,6 +23,7 @@
                 
                 <button id="logout" class="uk-button uk-button-secondary uk-button-small">Logout</button>
                 
+                <button>{{user.username}}</button>
                 {{else}}
                 {{!-- Login/Signup Button IF user is NOT logged in --}}
                 <form class="uk-flex uk-flex-center uk-align-center">
@@ -44,36 +44,6 @@
         </header>
     
     <div class="uk-flex">
-        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
-            <div id="user-profile">
-                <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
-                <!-- User Info - Username, Games, Platforms, Schedule -->
-                {{!-- <ol>
-                    <li>
-                    {{username}}
-                    </li>  
-                    <li>
-                        {{friends-list}}
-                    </li>
-                    <li>
-                        {{game_id}}
-                    </li>
-                    <li>
-                        {{schedule}}
-                    </li>
-                </ol>
-            </div> --}}
-            {{#if loggedIn }}
-                <div id ="friends-list">
-                    {{!-- <button id="friends-list"> Friends List </button> --}}
-                    <!-- Friends List -->
-                </div>
-                <div id="game-calendar">
-                    <!-- Schedule -->
-                </div>
-            {{/if}}
-        </section>
-        
     
         <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
             <!-- post feed -->
@@ -132,7 +102,6 @@
             </div>
         </section>
         </div>
-
         <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
             Thanks for playing!
         </footer>

@@ -19,5 +19,8 @@ module.exports = {
         }
 
         return word;
+    },
+    single_object: item => {
+        return item[0][0]
     }
 };

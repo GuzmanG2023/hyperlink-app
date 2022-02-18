@@ -6,7 +6,9 @@ const withAuth = require('../utils/auth');
 // get all posts for dashboard
 router.get('/', (req, res) => {
   console.log('======================');
-  Post.findAll({
+
+  // promise 1: posts
+  let postCall = Post.findAll({
     where: {
       user_id: req.session.user_id
     },
@@ -22,30 +24,49 @@ router.get('/', (req, res) => {
     ],
     include: [
         {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'post_date'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'post_date'],
+          include: {
+              model: User,
+              attributes: ['username']
+          }
         },
         {
-            model: User,
-            attributes: ['username'],
-            include: {
-              model: Friend,
-              attributes: ['user_id2']
-            }
+          model: User,
+          attributes: ['id', 'username'],
+          include: {
+            model: Friend,
+            attributes: ['user_id2']
+          }
         }
     ]
-})
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
+  });
+
+  // promise 2: userinfo
+  let userCall = User.findAll({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: ['id', 'username'],
+    include: [
+      {
+        model: Friend,
+        attributes: ['request', 'user_id2']
+      }
+    ]
+  });
+
+  // wrapper for promises to finish
+  Promise.all([postCall, userCall])
+  
+  .then((dbPostData) => {
+    const posts = dbPostData[0].map(post => post.get({ plain: true }));
+    let single_post = dbPostData[1][0].get({ plain: true });
+    res.render('dashboard', { posts, loggedIn: true, single_post});
+  })
+  .catch(err => {
+    res.status(500).json(err);
+  });
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
