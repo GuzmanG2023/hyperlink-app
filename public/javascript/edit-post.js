@@ -1,21 +1,15 @@
 // find buttons
 var savePostBtn = document.getElementById('save-post-btn');
-var deletePostBtn = document.getElementById('delete-post-btn');
 var postId = document.getElementById('post-id');
 var title = document.getElementById('post-title').value.trim();
 var post_data = document.getElementById('post-text').value.trim();
 
-console.log(title);
-console.log(post_data);
-console.log(postId.dataset.id);
-
-async function editFormHandler(event) {
+async function editPost(event) {
     event.preventDefault();
 
     const title = document.getElementById('post-title').value.trim();
     const post_data = document.getElementById('post-text').value.trim();
     const id = postId.dataset.id;
-
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
@@ -35,4 +29,4 @@ async function editFormHandler(event) {
     }
 }
 
-savePostBtn.addEventListener('submit', editFormHandler);
+savePostBtn.addEventListener('click', editPost);
