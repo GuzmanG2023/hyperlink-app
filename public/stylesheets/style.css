@@ -48,11 +48,15 @@
     margin-top: 25px;
 }
 
-#comment-body{
-    font-size: medium;
+.comment-body{
+    font-size: 14px;
     height: 100px;
 }
 
 #game-dropdown{
     margin-top: 15px;
+}
+
+.post-body-edit{
+    margin-top: 20px;
 }
