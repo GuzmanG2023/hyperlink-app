@@ -92,8 +92,10 @@ router.get('/', (req, res) => {
     genre.name
   `, { raw: true })
 
+  let gameList = sequelize.query(`SELECT DISTINCT name from game`, { raw: true })
+
   // wrapper for promises to finish
-  Promise.all([postCall, userCall, friendsList, gamePopularity, genrePopularity])
+  Promise.all([postCall, userCall, friendsList, gamePopularity, genrePopularity, gameList])
   
   .then((data) => {
     const posts = data[0].map(post => post.get({ plain: true }));
@@ -101,7 +103,8 @@ router.get('/', (req, res) => {
     let friends = data[2][0];
     let games = data[3][0];
     let genre = data[4][0];
-    res.render('dashboard', { posts, loggedIn: true, single_user, friends, games, genre});
+    let gameList = data[5][0];
+    res.render('dashboard', { posts, loggedIn: true, single_user, friends, games, genre, gameList});
   })
   .catch(err => {
     res.status(500).json(err);

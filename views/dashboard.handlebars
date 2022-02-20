@@ -6,7 +6,6 @@
 
 <div class="uk-flex uk-flex-left">
   <section>
-      <h1 class="uk-text-italic uk-text-warning"> Welcome </h1>
     <h2 class="uk-text-bold uk-text-primary">Create New Post</h2>
 
     <form class="new-post-form">
@@ -19,15 +18,13 @@
         <input id="post-text" name="post-text" class="uk-input uk-form-large"/>
       </div>
       {{!-- game selector --}}
-      <div>
-          <select name="post-game" id="game-dropdown">
-              <option value="Destiny 2">Destiny 2</option>
-              <option value="Mortal Kombat 11">Mortal Kombat 11</option>
-              <option value="NBA 2K22">NBA 2K22</option>
-              <option value="Sea of Thieves">Sea of Thieves</option>
-              <option value="Final Fantasy XIV">Final Fantasy XIV</option>
-          </select>
-      </div>
+      <select class="uk-select" name="post-game" id="game-dropdown">
+        {{#each gameList as |game|}}
+        <option value="{{game.name}}">{{game.name}}</option>
+        {{/each}}
+      </select>
+
+
       <button type="submit" id="new-post" class="btn uk-button-primary uk-button-large uk-margin-top">Create</button>
     </form>
   </section>
@@ -55,4 +52,4 @@
 </section>
 
 <script src="/javascript/add-post.js"></script>
-<script src="/javascript/friends-list.js"></script>
+<script src="/javascript/friends-search.js"></script>
