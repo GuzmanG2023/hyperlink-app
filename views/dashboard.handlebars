@@ -1,32 +1,7 @@
+{{!-- profile side pannel (left) --}}
 <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
-  <div id="user-profile">
-      <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
-      <!-- User Info - Username, Games, Platforms, Schedule -->
-      {{!-- <ol>
-          <li>
-          {{username}}
-          </li>  
-          <li>
-              {{friends-list}}
-          </li>
-          <li>
-              {{game_id}}
-          </li>
-          <li>
-              {{schedule}}
-          </li>
-      </ol>
-  </div> --}}
-  {{#if loggedIn }}
-    <div id="user-profile">{{single_post.username}}</div>
-    <div id ="friends-list">
-        {{!-- <button id="friends-list"> Friends List </button> --}}
-        <!-- Friends List -->
-    </div>
-    <div id="game-calendar">
-        <!-- Schedule -->
-    </div>
-  {{/if}}
+  {{> user single_user }}
+  {{> friends-list friends }}
 </section>
 
 <section>

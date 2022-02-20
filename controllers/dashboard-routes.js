@@ -47,22 +47,31 @@ router.get('/', (req, res) => {
     where: {
       id: req.session.user_id
     },
-    attributes: ['id', 'username'],
-    include: [
-      {
-        model: Friend,
-        attributes: ['request', 'user_id2']
-      }
-    ]
+    attributes: ['id', 'username']
   });
 
+  // promise 3: friendlist
+  let userid = req.session.user_id;
+  let friendsList = sequelize.query(`
+    SELECT 
+      friend.user_id2,
+      user.username
+    FROM friend 
+    LEFT JOIN user
+    ON user.id = friend.user_id2
+    WHERE user_id1 = ${userid}
+    AND request = 1`, 
+    { raw: true })
+
   // wrapper for promises to finish
-  Promise.all([postCall, userCall])
+  Promise.all([postCall, userCall, friendsList])
   
-  .then((dbPostData) => {
-    const posts = dbPostData[0].map(post => post.get({ plain: true }));
-    let single_post = dbPostData[1][0].get({ plain: true });
-    res.render('dashboard', { posts, loggedIn: true, single_post});
+  .then((data) => {
+    const posts = data[0].map(post => post.get({ plain: true }));
+    let single_user = data[1][0].get({ plain: true });
+    let friends = data[2][0]
+    console.log(friends);
+    res.render('dashboard', { posts, loggedIn: true, single_user, friends});
   })
   .catch(err => {
     res.status(500).json(err);
