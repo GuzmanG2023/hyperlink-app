@@ -1,33 +1,19 @@
-var userEl = document.getElementById('user-profile');
-var friendsEl = document.getElementById('friends-list');
+function friendSearch() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('friends-search');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("friends-container");
+    li = ul.getElementsByTagName('li');
 
-async function friendsListHandler(event) {
-    event.preventDefault();
-
-    console.log('Printing from the friends list handler')
-    const response = await fetch(`./api/friend/${id}`, {
-        method: 'GET',
-        body: JSON.stringify({
-            title
-        }),
-        attributes: [
-            'id', 
-            'user_id1', 
-            'user_id2',
-            'request'
-        ],
-        headers: {
-            'Content-Type': 'application/json'
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
         }
-    })
-    .then(
-        console.log(response)
-    )
-    .catch(err => {
-        console.log(err);
-    })
-    
+    }
 }
-
-// add event listener
-friendsEl.addEventListener('click', friendsListHandler);
