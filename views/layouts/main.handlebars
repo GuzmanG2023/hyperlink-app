@@ -45,70 +45,22 @@
         </header>
     
     <div class="uk-flex">
-        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
-        </section>
+        {{!-- <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
+        </section> --}}
 
         <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
             <!-- post feed -->
             {{{ body }}}
-            
         </main>
 
-        <section id="top-feed" class="uk-width-1-6 uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
-            <div id="top-available-now" class="">
-                <ol class="uk-animation-slide-right-medium uk-text-emphasis">
-                    <h6>
-                        Top Games Being Played
-                    </h6>
-                    <!-- list by game_id - get data by how many people are scheduled  -->
-                    <li>
-                        Destiny 2
-                    </li>
-                    <li>
-                        Mortal Kombat 11
-                    </li>
-                    <li>
-                        NBA 2K22
-                    </li>
-                    <li>
-                        Sea of Thieves
-                    </li>
-                    <li>
-                        Final Fantasy XIV
-                    </li>
-                </ol>
-                <!-- Top 5 games where other players are currently available -->
-            </div>
-            <div id="top-played">
-                <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
-                <ol class="uk-animation-slide-left-medium uk-text-emphasis">
-                    <h6>
-                        Top Games in Collections
-                    </h6>
-                    <li>
-                        Halo Infinite
-                    </li>
-                    <li>
-                        Apex Legends
-                    </li>
-                    <li>
-                        Destiny 2
-                    </li>
-                    <li>
-                        Fortnite
-                    </li>
-                    <li>
-                        Final Fantasy XIV
-                    </li>
-                </ol>
-                <!-- Top 5 common games most listed in user's profiles -->
-            </div>
-        </section>
-        </div>
+        {{!-- <section id="top-feed" class="uk-background-primary uk-position-right uk-margin-large-top uk-padding uk-width-1-6">
+        </section> --}}
+
         <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
             Thanks for playing!
         </footer>
     </div>
+
     {{!-- logout logic --}}
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>

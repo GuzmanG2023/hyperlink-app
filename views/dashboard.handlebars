@@ -4,46 +4,55 @@
   {{> friends-list friends }}
 </section>
 
-<section>
-    <h1 class="uk-text-italic uk-text-warning"> Welcome </h1>
-  <h2 class="uk-text-bold uk-text-primary">Create New Post</h2>
+<div class="uk-flex uk-flex-left">
+  <section>
+      <h1 class="uk-text-italic uk-text-warning"> Welcome </h1>
+    <h2 class="uk-text-bold uk-text-primary">Create New Post</h2>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title" class="uk-text-primary uk-text-italic">Title</label>
-      <input type="text" id="post-title" name="post-title" class="uk-input uk-form-small"/>
-    </div>
-    <div>
-      <label for="post-text" class="uk-text-primary uk-text-italic">Post Text</label>
-      <input id="post-text" name="post-text" class="uk-input uk-form-large"/>
-    </div>
-    {{!-- game selector --}}
-    <div>
-        <select name="post-game" id="game-dropdown">
-            <option value="Destiny 2">Destiny 2</option>
-            <option value="Mortal Kombat 11">Mortal Kombat 11</option>
-            <option value="NBA 2K22">NBA 2K22</option>
-            <option value="Sea of Thieves">Sea of Thieves</option>
-            <option value="Final Fantasy XIV">Final Fantasy XIV</option>
-        </select>
-    </div>
-    <button type="submit" id="new-post" class="btn uk-button-primary uk-button-large uk-margin-top">Create</button>
-  </form>
-</section>
+    <form class="new-post-form">
+      <div>
+        <label for="post-title" class="uk-text-primary uk-text-italic">Title</label>
+        <input type="text" id="post-title" name="post-title" class="uk-input uk-form-small"/>
+      </div>
+      <div>
+        <label for="post-text" class="uk-text-primary uk-text-italic">Post Text</label>
+        <input id="post-text" name="post-text" class="uk-input uk-form-large"/>
+      </div>
+      {{!-- game selector --}}
+      <div>
+          <select name="post-game" id="game-dropdown">
+              <option value="Destiny 2">Destiny 2</option>
+              <option value="Mortal Kombat 11">Mortal Kombat 11</option>
+              <option value="NBA 2K22">NBA 2K22</option>
+              <option value="Sea of Thieves">Sea of Thieves</option>
+              <option value="Final Fantasy XIV">Final Fantasy XIV</option>
+          </select>
+      </div>
+      <button type="submit" id="new-post" class="btn uk-button-primary uk-button-large uk-margin-top">Create</button>
+    </form>
+  </section>
 
-{{#if posts.length}}
-<section>
-  <h2 class="uk-text-warning">Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
+  {{#if posts.length}}
+  <div class="uk-flex uk-flex-right">
+    <section id="user-post">
+      <h2 class="uk-text-warning">Your Posts</h2>
+      <ol>
+        {{#each posts as |post|}}
+        <li>
+          {{> post-info post}}
+          <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+      </ol>
+    </section>
+  <div>
+  {{/if}}
+</div>
+
+<section id="top-feed" class="uk-width-1-6 uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
+  {{> top-games games}}
+  {{> top-genres genre}}
 </section>
-{{/if}}
 
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/friends-list.js"></script>
