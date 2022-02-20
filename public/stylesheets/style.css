@@ -31,3 +31,24 @@
 #friends-container  li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
+
+.v-text{
+    color: white;
+}
+
+.comment-feed{
+    margin-top: 50px;
+}
+
+.comments{
+    margin-top: 12px;
+}
+
+.comment-form{
+    margin-top: 25px;
+}
+
+#comment-body{
+    font-size: medium;
+    height: 100px;
+}

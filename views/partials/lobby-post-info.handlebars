@@ -1,10 +1,12 @@
 <article class="">
     <div class="">
-        <h3 class="uk-text-primary">{{title}}</h3>
+        <a href="/post/{{id}}"><h3 class="uk-text-primary">{{title}}</h3></a>
     </div>
     <div class="v-text">{{post_data}}</div>
     <div class="uk-text-warning">
         Posted by {{user.username}} on
         {{format_date post_date}}
+        |
+        <a href="/post/{{id}}">{{comment_count}} comment(s)</a>
     </div>
 </article>

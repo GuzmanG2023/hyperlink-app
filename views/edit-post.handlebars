@@ -8,7 +8,7 @@
       <input name="post-title" type="text" value="{{post.title}}" />
     </div>
     <div>
-      {{post.title}} on {{post.post_date}}
+      {{post.title}} on {{format_date post.post_date}}
     </div>
     <button type="submit">Save post</button>
     <button type="button" class="delete-post-btn">Delete post</button>
