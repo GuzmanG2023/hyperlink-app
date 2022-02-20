@@ -50,9 +50,9 @@ router.get('/post/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_text',
             'title',
-            'post-date',
+            'post_data',
+            'post_date',
             'game_id',
             'platform_id',
             'genre_id'
