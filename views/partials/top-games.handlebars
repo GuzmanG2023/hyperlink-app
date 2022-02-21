@@ -1,0 +1,9 @@
+{{!-- post/game info for the user --}}
+<div id="top-games">
+    <h3 class="uk-text-warning">Most popular games</h3>
+    <ol class="uk-animation-slide-right-medium uk-text-emphasis">
+        {{#each this as |game|}}
+        <li class="v-text">{{game.name}}: {{game.post_count}}</li>
+        {{/each}}
+    </ol>
+</div>

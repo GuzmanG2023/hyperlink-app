@@ -1,0 +1,22 @@
+<section>
+    {{> post-info post}}
+
+    {{#if loggedIn}}
+    <div>
+        <form class="comment-form">
+            <div>
+                <textarea class="uk-textarea uk-form-large" id="comment-body" name="comment-body"></textarea>
+            </div>
+
+            <div>
+                <button class="uk-button uk-button-primary uk-button-small" type="submit">add comment</button>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+    <div></div>
+    {{> comments post.comments}}
+</section>
+{{#if loggedIn}}
+    <script src="/javascript/comment.js"></script>
+{{/if}}

@@ -40,6 +40,9 @@ router.get('/', (req, res) => {
 // get post by id
 router.get('/:id', (req, res) => {
     Post.findOne({
+        where: {
+            id: req.params.id
+        },
         attributes: [
             'id',
             'title',
@@ -98,7 +101,8 @@ router.post('/',  (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
-            title: req.body.title
+            title: req.body.title,
+            post_data: req.body.post_data
         },
         {
             where: {

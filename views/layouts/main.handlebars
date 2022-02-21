@@ -5,146 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HYPERLINK</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css">
 </head>
 
 <body>
-
-    <div>
-        <header class ="uk-background-secondary uk-position-relative uk-sticky">
-            <h2 class="uk-padding-small uk-flex uk-align-center">
+    <div class="">
+        <header class ="uk-background-secondary uk-grid uk-flex-center uk-flex-between@s">
+            <h2>
                 <a href="/" class="uk-text-italic">H Y P E R L I N K</a>
             </h2>
-            <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
+            <nav class="uk-flex-right">
                 {{!-- <!-- Logout and Create Post buttons IF user is logged in --> --}}
-                 {{#if loggedIn}}
+                {{#if loggedIn}}
                 <a href="/" class="uk-margin-right">Lobby</a>
-                
                 <button id="create-post" onclick="window.location.href='/dashboard'" class="uk-button uk-button-primary uk-button-small">+Post</button>
-                
                 <button id="logout" class="uk-button uk-button-secondary uk-button-small">Logout</button>
-                
+
                 {{else}}
-                {{!-- Login/Signup Button IF user is NOT logged in --}}
-                <form class="uk-flex uk-flex-center uk-align-center">
-                    <div>
-                        <label for=></label>
-                        <input type="submit text" id="searchBar" class="uk-input uk-form-small" placeholder="Search"/>
-                    </div>
-        
-                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-primary">Search</button>
-                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-secondary">Clear</button>
-                </form>
                 {{!-- point user to login screen when clicked --}}
                 <a href="/login">Login/Signup</a>
                 {{/if}} 
-
-                <!-- Search Bar -->
             </nav>
         </header>
-    
-    <div class="uk-flex">
-        <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
-            <div id="user-profile">
-                <!-- Profile Pic (how do we fetch user uploaded images and inject here??)-->
-                <!-- User Info - Username, Games, Platforms, Schedule -->
-                <ol class="uk-list uk-text-emphasis uk-list-divider">
-                    <li>
-                        {{!-- {{username}} --}}
-                        Username
-                    </li>  
-                    <li>
-                        {{!-- {{friends-list}} --}}
-                        0 Friends Online
-                    </li>
-                    <li>
-                        {{!-- {{game_id}} --}}
-                        Looking for Group: Destiny 2
-                    </li>
-                    <li>
-                        {{!-- {{schedule}} --}}
-                        Your status is set to Available
-                    </li>
-                </ol>
-            </div>
-            {{#if loggedIn }}
-                <div id ="friends-list">
-                    {{!-- <button id="friends-list"> Friends List </button> --}}
-                    <!-- Friends List -->
-                </div>
-                <div id="game-calendar">
-                    <!-- Schedule -->
-                </div>
-            {{/if}}
-        </section>
         
-    
-        <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
-            <!-- post feed -->
-            {{{ body }}}
-            
-        </main>
-
-        <section id="top-feed" class="uk-width-1-6 uk-background-primary uk-container uk-position-right uk-margin-large-top uk-padding uk-list uk-list-divider">
-            <div id="top-available-now" class="">
-                <ol class="uk-animation-slide-right-medium uk-text-emphasis">
-                    <h6>
-                        Top Games Being Played
-                    </h6>
-                    <!-- list by game_id - get data by how many people are scheduled  -->
-                    <li>
-                        Destiny 2
-                    </li>
-                    <li>
-                        Mortal Kombat 11
-                    </li>
-                    <li>
-                        NBA 2K22
-                    </li>
-                    <li>
-                        Sea of Thieves
-                    </li>
-                    <li>
-                        Final Fantasy XIV
-                    </li>
-                </ol>
-                <!-- Top 5 games where other players are currently available -->
-            </div>
-            <div id="top-played">
-                <!-- list by game_id, game_title - get data by how many users have the game in their collection-->
-                <ol class="uk-animation-slide-left-medium uk-text-emphasis">
-                    <h6>
-                        Top Games in Collections
-                    </h6>
-                    <li>
-                        Halo Infinite
-                    </li>
-                    <li>
-                        Apex Legends
-                    </li>
-                    <li>
-                        Destiny 2
-                    </li>
-                    <li>
-                        Fortnite
-                    </li>
-                    <li>
-                        Final Fantasy XIV
-                    </li>
-                </ol>
-                <!-- Top 5 common games most listed in user's profiles -->
-            </div>
-        </section>
+        <div class="uk-flex">
+            <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
+                <!-- post feed -->
+                {{{ body }}}
+            </main>
+            <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
+                Thanks for playing!
+            </footer>
         </div>
-
-        <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
-            Thanks for playing!
-        </footer>
     </div>
+
     {{!-- logout logic --}}
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
-    <script src="/javascript/friends-list.js"></script>
+    <script src="/javascript/friends-search.js"></script>
     {{/if}}
 </body>
 </html>

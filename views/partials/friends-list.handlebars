@@ -1,0 +1,7 @@
+<h3 class="v-text">Friend's List</h3>
+<input type="text" id="friends-search" onkeyup="friendSearch()" placeholder="Search list">
+    <ul id="friends-container">
+        {{#filter_result this 5}}
+        <li><a href="#">{{ username }}</a></li>
+        {{/filter_result}}
+    </ul>

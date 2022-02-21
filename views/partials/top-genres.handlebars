@@ -1,0 +1,9 @@
+{{!-- top genres --}}
+<div id="top-genres">
+    <h3 class="uk-text-warning">Most popular genres</h3>
+    <ol class="uk-animation-slide-left-medium uk-text-emphasis">
+        {{#each this as |genre|}}
+        <li class="v-text">{{genre.name}}: {{genre.post_count}}</li>
+        {{/each}}
+    </ol>
+</div>

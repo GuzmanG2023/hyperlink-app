@@ -1,15 +1,21 @@
-async function editFormHandler(event) {
+// find buttons
+var savePostBtn = document.getElementById('save-post-btn');
+var postId = document.getElementById('post-id');
+var title = document.getElementById('post-title').value.trim();
+var post_data = document.getElementById('post-text').value.trim();
+
+async function editPost(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value.trim();
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const title = document.getElementById('post-title').value.trim();
+    const post_data = document.getElementById('post-text').value.trim();
+    const id = postId.dataset.id;
 
-    const response = await fetch(`./api/posts/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            title
+            title,
+            post_data
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -23,4 +29,4 @@ async function editFormHandler(event) {
     }
 }
 
-document.querySelector('edit-post-form').addEventListener('submit', editFormHandler);
+savePostBtn.addEventListener('click', editPost);
