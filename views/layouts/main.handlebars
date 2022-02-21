@@ -10,53 +10,34 @@
 </head>
 
 <body>
-    <div>
-        <header class ="uk-background-secondary uk-position-relative uk-sticky">
-            <h2 class="uk-padding-small uk-flex uk-align-center">
+    <div class="">
+        <header class ="uk-background-secondary uk-grid uk-flex-center uk-flex-between@s">
+            <h2>
                 <a href="/" class="uk-text-italic">H Y P E R L I N K</a>
             </h2>
-            <nav class="uk-flex uk-flex-right uk-align-center uk-position-top uk-margin uk-padding-small">
+            <nav class="uk-flex-right">
                 {{!-- <!-- Logout and Create Post buttons IF user is logged in --> --}}
                 {{#if loggedIn}}
                 <a href="/" class="uk-margin-right">Lobby</a>
-                
                 <button id="create-post" onclick="window.location.href='/dashboard'" class="uk-button uk-button-primary uk-button-small">+Post</button>
                 <button id="logout" class="uk-button uk-button-secondary uk-button-small">Logout</button>
 
                 {{else}}
-                {{!-- Login/Signup Button IF user is NOT logged in --}}
-                <form class="uk-flex uk-flex-center uk-align-center">
-                    <div>
-                        <label for=></label>
-                        <input type="submit text" id="searchBar" class="uk-input uk-form-small" placeholder="Search"/>
-                    </div>
-        
-                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-primary">Search</button>
-                    <button type="submit" id="submit" class="uk-button uk-button-small uk-button-secondary">Clear</button>
-                </form>
                 {{!-- point user to login screen when clicked --}}
                 <a href="/login">Login/Signup</a>
                 {{/if}} 
-
-                <!-- Search Bar -->
             </nav>
         </header>
-    
-    <div class="uk-flex">
-        {{!-- <section class="uk-background-primary uk-position-left uk-margin-large-top uk-padding uk-width-1-6">
-        </section> --}}
-
-        <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
-            <!-- post feed -->
-            {{{ body }}}
-        </main>
-
-        {{!-- <section id="top-feed" class="uk-background-primary uk-position-right uk-margin-large-top uk-padding uk-width-1-6">
-        </section> --}}
-
-        <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
-            Thanks for playing!
-        </footer>
+        
+        <div class="uk-flex">
+            <main  class="uk-flex uk-flex-center uk-align-center uk-padding uk-background-secondary uk-flex-auto">
+                <!-- post feed -->
+                {{{ body }}}
+            </main>
+            <footer class="uk-background-secondary uk-flex uk-flex-center uk-position-bottom">
+                Thanks for playing!
+            </footer>
+        </div>
     </div>
 
     {{!-- logout logic --}}
